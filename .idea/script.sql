@@ -13,7 +13,7 @@ CREATE TABLE dealerships(
 // Table 2: vehicles
 
 CREATE TABLE vehicles(
-    VIN string varchar(17) NULL,
+    VIN string varchar(17) NOT NULL,
     sold BOOLEAN,
     PRIMARY KEY (VIN)
 );
@@ -24,5 +24,21 @@ CREATE TABLE inventory(
     dealershipsId int,
     VIN string
 );
+
+// Table 4: sales contracts
+
+CREATE TABLE salesContracts(
+    id int AUTO_INCREMENT NOT NULL,
+    FOREIGN KEY (VIN)
+);
+
+// Table 5: (optional) lease contracts
+
+CREATE TABLE leaseContracts (
+    id int AUTO_INCREMENT NOT NULL,
+    FOREIGN KEY (VIN)
+);
+
+
 
 
