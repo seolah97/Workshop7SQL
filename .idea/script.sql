@@ -3,7 +3,7 @@ CREATE DATABASE workshop-Seven;
 // Table 1: dealerships
 
 CREATE TABLE dealerships(
-    id int AUTO_INCREMENT NOT NULL,
+    id int,
     name varchar(50),
     address varchar(50)
     phone varchar(12),
@@ -13,7 +13,7 @@ CREATE TABLE dealerships(
 // Table 2: vehicles
 
 CREATE TABLE vehicles(
-    VIN string varchar(17) NOT NULL,
+    VIN varchar(17),
     sold BOOLEAN,
     PRIMARY KEY (VIN)
 );
@@ -22,22 +22,25 @@ CREATE TABLE vehicles(
 
 CREATE TABLE inventory(
     dealershipsId int,
-    VIN string
+    VIN varchar(17)
 );
 
 // Table 4: sales contracts
 
 CREATE TABLE salesContracts(
-    id int AUTO_INCREMENT NOT NULL,
-    FOREIGN KEY (VIN)
+    id int,
+    VIN varchar(17),
+    FOREIGN KEY (VIN) REFERENCES vehicles(VIN)
 );
 
 // Table 5: (optional) lease contracts
 
 CREATE TABLE leaseContracts (
-    id int AUTO_INCREMENT NOT NULL,
-    FOREIGN KEY (VIN)
+      id int,
+      VIN varchar(17),
+      FOREIGN KEY (VIN) REFERENCES vehicles(VIN)
 );
+
 
 
 
