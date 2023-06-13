@@ -36,6 +36,8 @@ CREATE TABLE inventory(
 CREATE TABLE salesContracts(
     id int,
     VIN varchar(17),
+    name varchar(100),
+    dateOfPurchase varchar(50),
     FOREIGN KEY (VIN) REFERENCES vehicles(VIN)
 );
 
@@ -44,6 +46,8 @@ CREATE TABLE salesContracts(
 CREATE TABLE leaseContracts (
       id int,
       VIN varchar(17),
+      name varchar(100),
+      dateOfPurchase varchar(50),
       FOREIGN KEY (VIN) REFERENCES vehicles(VIN)
 );
 
@@ -65,6 +69,30 @@ INSERT INTO vehicles(VIN, make, model, year, color, sold) VALUES
 	('JTEBU5JR8D5264789', 'Toyota', '4Runner', 2013, 'Black', TRUE),
 	('2C3CDXCT5CH123456', 'Chrysler', '300', 2012, 'Red', FALSE),
 	('1G1BC5SM4J1234567', 'Chevrolet', 'Malibu', 2018, 'Blue', TRUE);
+
+INSERT INTO inventory(dealership_Id, VIN) VALUES
+    (1, '1HGCM82651A123456'),
+    (1, '3VWCM82671M987654'),
+   	(3, 'JN1DA31A01P987123'),
+   	(2, '5XYZC6BH6AG754321'),
+   	(2, '1GCHK29U43E654789'),
+   	(2, 'WAUZZZ8K4AA432156'),
+   	(1, 'KMHDU4ADXAU987654'),
+   	(3, 'JTEBU5JR8D5264789'),
+   	(1, '2C3CDXCT5CH123456'),
+   	(2, '1G1BC5SM4J1234567');
+
+INSERT INTO salesContracts (id, VIN, name, dateOfPurchase) VALUES
+    (1, '1HGCM82651A123456', 'Ashley Perez', '07/22/2012'),
+    (2, '3VWCM82671M987654', 'Benjamin Thompson', '03/19/2013'),
+    (3, 'JN1DA31A01P987123', 'Emily Collins', '09/08/2015'),
+    (4, '5XYZC6BH6AG754321', 'Michael Ramirez', '11/30/2014'),
+    (5, '1GCHK29U43E654789', 'Olivia Mitchell', '06/10/2018'),
+    (6, 'WAUZZZ8K4AA432156', 'Daniel Nelson', '02/04/2021'),
+    (7, 'KMHDU4ADXAU987654', 'Sophia Walker', '10/17/2016'),
+    (8, 'JTEBU5JR8D5264789', 'Jacob Turner', '04/03/2019'),
+    (9, '2C3CDXCT5CH123456', 'Isabella Hughes', '08/12/2011'),
+    (10, '1G1BC5SM4J1234567', 'Matthew Foster', '12/09/2022');
 
 
 
